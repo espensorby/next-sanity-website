@@ -1,6 +1,5 @@
 import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
-import project from './sanity/schemas/project-schema';
 import schemas from './sanity/schemas/index';
 
 const config = defineConfig({
