@@ -1,4 +1,3 @@
-// app/projects/[project]/page.tsx
 import { PortableText } from '@portabletext/react';
 import { getProject } from '@/sanity/sanity-utils';
 import Image from 'next/image';
@@ -11,8 +10,8 @@ export default async function Project({ params }: Props) {
   const slug = params.project;
   const project = await getProject(slug);
   return (
-    <div className="max-w-3xl mx-auto py-20">
-      <header className="flex justify-between items-center">
+    <>
+      <div className="flex justify-between items-center">
         <h1 className="text-5xl font-extrabold drop-shadow bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent">
           {project.name}
         </h1>
@@ -24,8 +23,7 @@ export default async function Project({ params }: Props) {
           rel="noopener noreferrer">
           View Project
         </a>
-      </header>
-      {/*content goes here*/}
+      </div>
       <div className="mt-4 text-lg text-gray-700">
         <PortableText value={project.content} />
       </div>
@@ -36,6 +34,6 @@ export default async function Project({ params }: Props) {
         width={1920}
         height={1080}
       />
-    </div>
+    </>
   );
 }

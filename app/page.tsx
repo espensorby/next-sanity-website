@@ -1,16 +1,12 @@
-// app/page.tsx
-
 import { getProjects } from '@/sanity/sanity-utils';
-import { PortableTextBlock } from 'next-sanity';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default async function Home() {
   const projects = await getProjects();
-  console.log(projects);
 
   return (
-    <div className="max-w-5xl mx-auto px-5 py-16">
+    <>
       <h1 className="text-7xl font-extrabold drop-shadow">
         Hello I&apos;m{' '}
         <span className="bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent">
@@ -44,6 +40,6 @@ export default async function Home() {
           </Link>
         ))}
       </div>
-    </div>
+    </>
   );
 }
