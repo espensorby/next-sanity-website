@@ -1,6 +1,9 @@
+// app/page.tsx
+
 import { getProjects } from '@/sanity/sanity-utils';
 import { PortableTextBlock } from 'next-sanity';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default async function Home() {
   const projects = await getProjects();
@@ -22,20 +25,23 @@ export default async function Home() {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-5">
         {projects.map((project) => (
-          <div key={project._id} className="border border-gray-500 rounded-lg">
+          <Link
+            href={`/projects/${project.slug}`}
+            key={project._id}
+            className="border-2 border-gray-500 rounded-lg hover:scale-105 hover:border-blue-500 transition">
             {project.image && (
               <Image
                 src={project.image}
                 alt={project.alt}
-                width={250}
-                height={100}
-                className="object-cover rounded-lg border border-gray-500"
+                width={750}
+                height={300}
+                className="object-cover"
               />
             )}
-            <div className="font-extrabold bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent ">
+            <div className="mt-2 pt-2 pb-3 pl-3 font-extrabold bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent ">
               {project.name}
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
