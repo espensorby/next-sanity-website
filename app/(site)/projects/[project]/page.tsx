@@ -9,6 +9,7 @@ type Props = {
 export default async function Project({ params }: Props) {
   const slug = params.project;
   const project = await getProject(slug);
+
   return (
     <>
       <div className="flex justify-between items-center">
@@ -28,9 +29,9 @@ export default async function Project({ params }: Props) {
         <PortableText value={project.content} />
       </div>
       <Image
+        alt={project.alt}
         className="mt-10 object-cover border-2 border-gray-700 rounded-xl"
         src={project.image}
-        alt={project.alt}
         width={1920}
         height={1080}
       />

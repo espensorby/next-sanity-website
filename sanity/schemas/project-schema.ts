@@ -22,7 +22,7 @@ const project = {
       fields: [
         {
           name: 'alt',
-          title: 'Alternative text',
+          title: 'Alt',
           type: 'string',
           options: { isHighlighted: true },
         },
